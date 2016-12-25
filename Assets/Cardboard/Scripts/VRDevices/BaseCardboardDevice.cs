@@ -119,7 +119,7 @@ BaseVRDevice
   }
 
   public override void PostRender() {
-    GL.IssuePluginEvent(kCardboardRenderEvent);
+    GL.IssuePluginEvent(System.IntPtr.Zero, kCardboardRenderEvent);
   }
 
   public override void OnPause(bool pause) {

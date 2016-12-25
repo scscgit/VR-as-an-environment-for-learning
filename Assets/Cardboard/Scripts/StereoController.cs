@@ -259,7 +259,8 @@ public class StereoController : MonoBehaviour {
 #if UNITY_EDITOR
     // Member variable 'cam' not always initialized when this method called in Editor.
     // So, we'll just make a local of the same name.
-    var cam = GetComponent<Camera>();
+    // Edit: removed the variable, as it does not seem to be used anywhere.
+    GetComponent<Camera>();
 #endif
 
     // Simplistic test if rig already exists.
