@@ -531,6 +531,8 @@ public class Cardboard : MonoBehaviour {
 #endif
     // Prevent the screen from dimming / sleeping
     Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    // Workaround if an app starts in portrait, view is cropped: https://github.com/googlevr/gvr-unity-sdk/issues/144
+    Screen.orientation = ScreenOrientation.LandscapeLeft;
     InitDevice();
     StereoScreen = null;
     AddCardboardCamera();
