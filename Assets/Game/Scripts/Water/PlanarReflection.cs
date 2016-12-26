@@ -29,7 +29,8 @@ namespace UnityStandardAssets.Water
 
         Camera CreateReflectionCameraFor(Camera cam)
         {
-            String reflName = gameObject.name + "Reflection" + cam.name;
+            // Reflection name with removed "+ cam.name" hoping it won't cause collisions, because it was often random
+            String reflName = gameObject.name + "Reflection";
             GameObject go = GameObject.Find(reflName);
 
             if (!go)
