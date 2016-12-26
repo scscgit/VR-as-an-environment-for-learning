@@ -7,21 +7,18 @@ using UnityEngine;
 
 namespace UnityStandardAssets.CrossPlatformInput
 {
+    // this script enables or disables the child objects of a control rig
+    // depending on whether the MobileInput is set.
     [ExecuteInEditMode]
     public class MobileControlRig : MonoBehaviour
     {
-        // this script enables or disables the child objects of a control rig
-        // depending on whether the USE_MOBILE_INPUT define is declared.
-
-        // This define is set or unset by a menu item that is included with
-        // the Cross Platform Input package.
 
 #if !UNITY_EDITOR
 	void OnEnable()
 	{
 		CheckEnableControlRig();
 	}
-	#endif
+#endif
 
         private void Start()
         {
@@ -32,7 +29,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                 UnityEngine.EventSystems.EventSystem system = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem>();
 
                 if (system == null)
-                {//the scene have no event system, spawn one
+                {
+                    //the scene have no event system, spawn one
                     GameObject o = new GameObject("EventSystem");
 
                     o.AddComponent<UnityEngine.EventSystems.EventSystem>();
@@ -66,11 +64,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         private void CheckEnableControlRig()
         {
-#if MOBILE_INPUT
-		EnableControlRig(true);
-		#else
-            EnableControlRig(false);
-#endif
+            EnableControlRig(CrossPlatformInputManager.SwitchedActiveInputMethod ==
+                             CrossPlatformInputManager.ActiveInputMethod.Touch);
         }
 
 

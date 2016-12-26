@@ -70,28 +70,40 @@ namespace UnityStandardAssets.Utility
                     m_FollowAngles.x += 360;
                 }
 
-#if MOBILE_INPUT
-            // on mobile, sometimes we want input mapped directly to tilt value,
-            // so it springs back automatically when the look input is released.
-			if (autoZeroHorizontalOnMobile) {
-				m_TargetAngles.y = Mathf.Lerp (-rotationRange.y * 0.5f, rotationRange.y * 0.5f, inputH * .5f + .5f);
-			} else {
-				m_TargetAngles.y += inputH * rotationSpeed;
-			}
-			if (autoZeroVerticalOnMobile) {
-				m_TargetAngles.x = Mathf.Lerp (-rotationRange.x * 0.5f, rotationRange.x * 0.5f, inputV * .5f + .5f);
-			} else {
-				m_TargetAngles.x += inputV * rotationSpeed;
-			}
-#else
-                // with mouse input, we have direct control with no springback required.
-                m_TargetAngles.y += inputH*rotationSpeed;
-                m_TargetAngles.x += inputV*rotationSpeed;
-#endif
+                if (CrossPlatformInputManager.SwitchedActiveInputMethod ==
+                    CrossPlatformInputManager.ActiveInputMethod.Touch)
+                {
+                    // on mobile, sometimes we want input mapped directly to tilt value,
+                    // so it springs back automatically when the look input is released.
+                    if (autoZeroHorizontalOnMobile)
+                    {
+                        m_TargetAngles.y = Mathf.Lerp(-rotationRange.y * 0.5f, rotationRange.y * 0.5f,
+                            inputH * .5f + .5f);
+                    }
+                    else
+                    {
+                        m_TargetAngles.y += inputH * rotationSpeed;
+                    }
+                    if (autoZeroVerticalOnMobile)
+                    {
+                        m_TargetAngles.x = Mathf.Lerp(-rotationRange.x * 0.5f, rotationRange.x * 0.5f,
+                            inputV * .5f + .5f);
+                    }
+                    else
+                    {
+                        m_TargetAngles.x += inputV * rotationSpeed;
+                    }
+                }
+                else
+                {
+                    // with mouse input, we have direct control with no springback required.
+                    m_TargetAngles.y += inputH * rotationSpeed;
+                    m_TargetAngles.x += inputV * rotationSpeed;
+                }
 
                 // clamp values to allowed range
-                m_TargetAngles.y = Mathf.Clamp(m_TargetAngles.y, -rotationRange.y*0.5f, rotationRange.y*0.5f);
-                m_TargetAngles.x = Mathf.Clamp(m_TargetAngles.x, -rotationRange.x*0.5f, rotationRange.x*0.5f);
+                m_TargetAngles.y = Mathf.Clamp(m_TargetAngles.y, -rotationRange.y * 0.5f, rotationRange.y * 0.5f);
+                m_TargetAngles.x = Mathf.Clamp(m_TargetAngles.x, -rotationRange.x * 0.5f, rotationRange.x * 0.5f);
             }
             else
             {
@@ -99,8 +111,8 @@ namespace UnityStandardAssets.Utility
                 inputV = Input.mousePosition.y;
 
                 // set values to allowed range
-                m_TargetAngles.y = Mathf.Lerp(-rotationRange.y*0.5f, rotationRange.y*0.5f, inputH/Screen.width);
-                m_TargetAngles.x = Mathf.Lerp(-rotationRange.x*0.5f, rotationRange.x*0.5f, inputV/Screen.height);
+                m_TargetAngles.y = Mathf.Lerp(-rotationRange.y * 0.5f, rotationRange.y * 0.5f, inputH / Screen.width);
+                m_TargetAngles.x = Mathf.Lerp(-rotationRange.x * 0.5f, rotationRange.x * 0.5f, inputV / Screen.height);
             }
 
             // smoothly interpolate current values to target angles
