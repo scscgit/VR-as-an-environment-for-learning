@@ -426,5 +426,4 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
         }
     }
     FallBack "Diffuse"
-    CustomEditor "ShaderForgeMaterialInspector"
 }
