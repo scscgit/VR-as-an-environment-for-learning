@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -42,7 +41,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
-        // Use this for initialization
+        public void SetCursorLock(bool value)
+        {
+            m_MouseLook.SetCursorLock(value);
+        }
+
         private void Start()
         {
             m_CharacterController = GetComponent<CharacterController>();
@@ -58,7 +61,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        // Update is called once per frame
         private void Update()
         {
             RotateView();
