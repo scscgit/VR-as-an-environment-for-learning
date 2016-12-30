@@ -1,18 +1,10 @@
 using System;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput.PlatformSpecific;
 
 namespace UnityStandardAssets.CrossPlatformInput
 {
 	public static class CrossPlatformInputManager
 	{
-		public enum ActiveInputMethod
-		{
-			Hardware,
-			Touch
-		}
-
-        public static ActiveInputMethod SwitchedActiveInputMethod { get; private set; }
 		private static VirtualInput activeInput;
 
 		private static VirtualInput s_TouchInput;
@@ -21,24 +13,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		static CrossPlatformInputManager()
 		{
-			s_TouchInput = new MobileInput();
-			s_HardwareInput = new StandaloneInput();
-		    SwitchActiveInputMethod(ActiveInputMethod.Touch);
-		}
-
-		public static void SwitchActiveInputMethod(ActiveInputMethod activeInputMethod)
-		{
-            SwitchedActiveInputMethod = activeInputMethod;
-			switch (activeInputMethod)
-			{
-				case ActiveInputMethod.Hardware:
-					activeInput = s_HardwareInput;
-					break;
-
-				case ActiveInputMethod.Touch:
-					activeInput = s_TouchInput;
-					break;
-			}
+			// GameInputManager should be created automagically here and linked as a dependency for the GameInput
+			activeInput = GameInput.Instance;
 		}
 
 		public static bool AxisExists(string name)

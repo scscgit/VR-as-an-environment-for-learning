@@ -70,8 +70,7 @@ namespace UnityStandardAssets.Utility
                     m_FollowAngles.x += 360;
                 }
 
-                if (CrossPlatformInputManager.SwitchedActiveInputMethod ==
-                    CrossPlatformInputManager.ActiveInputMethod.Touch)
+                if (GameInput.GameInputManager.ActiveInputMethod == GameInput.ActiveInputMethodType.NonVrPhone)
                 {
                     // on mobile, sometimes we want input mapped directly to tilt value,
                     // so it springs back automatically when the look input is released.

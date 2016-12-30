@@ -1,4 +1,3 @@
-using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -8,7 +7,7 @@ using UnityEngine;
 namespace UnityStandardAssets.CrossPlatformInput
 {
     // this script enables or disables the child objects of a control rig
-    // depending on whether the MobileInput is set.
+    // depending on whether the GameInputManager wants for it to be active.
     [ExecuteInEditMode]
     public class MobileControlRig : MonoBehaviour
     {
@@ -40,7 +39,6 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
 #if UNITY_EDITOR
-
         private void OnEnable()
         {
             EditorUserBuildSettings.activeBuildTargetChanged += Update;
@@ -62,10 +60,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 #endif
 
 
-        private void CheckEnableControlRig()
+        public void CheckEnableControlRig()
         {
-            EnableControlRig(CrossPlatformInputManager.SwitchedActiveInputMethod ==
-                             CrossPlatformInputManager.ActiveInputMethod.Touch);
+            if (!GameInput.GameInputManager.MobileControlRigs.Contains(this))
+            {
+                GameInput.GameInputManager.MobileControlRigs.Add(this);
+            }
+            EnableControlRig(GameInput.GameInputManager.IsMobileControlRigActive());
         }
 
 
