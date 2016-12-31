@@ -14,7 +14,7 @@ public class GameInputManager : MonoBehaviour
 {
     public static readonly GameInput.ActiveInputMethodType DefaultInputMethod = GameInput.ActiveInputMethodType.Vr;
 
-    private GameInput _gameInput;
+    [NonSerialized] private GameInput _gameInput;
 
     public GameInput GameInput
     {
@@ -45,7 +45,7 @@ public class GameInputManager : MonoBehaviour
     // Proxy for the GameInput.ActiveInputMethod
     public GameInput.ActiveInputMethodType ActiveInputMethod;
 
-    public IList<MobileControlRig> MobileControlRigs = new List<MobileControlRig>();
+    [NonSerialized] public IList<MobileControlRig> MobileControlRigs = new List<MobileControlRig>();
 
     public bool IsMobileControlRigActive()
     {
@@ -113,7 +113,7 @@ public class GameInputManager : MonoBehaviour
     }
 
     // Needs to be public, as the Reset is internally called by Unity only from the Editor, not during the AddComponent
-    public void Reset()
+    private void Reset()
     {
         ActiveInputMethod = DefaultInputMethod;
         var cardboardGameObject = GameObject.Find("CardboardMain");
@@ -123,6 +123,10 @@ public class GameInputManager : MonoBehaviour
     // During the Awake or Start, Manager does not have the GameInput instance initialized yet!
     void Awake()
     {
+        // If the Editor created this component, this will initialize it by getting an instance
+        if (Instance)
+        {
+        }
     }
 
     // Proxy updates the real value of ActiveInputMethod, triggering Input changes
