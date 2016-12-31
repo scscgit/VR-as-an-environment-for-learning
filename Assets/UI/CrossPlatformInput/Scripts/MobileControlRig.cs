@@ -41,14 +41,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 #if UNITY_EDITOR
         private void OnEnable()
         {
-            EditorUserBuildSettings.activeBuildTargetChanged += Update;
             EditorApplication.update += Update;
         }
 
 
         private void OnDisable()
         {
-            EditorUserBuildSettings.activeBuildTargetChanged -= Update;
             EditorApplication.update -= Update;
         }
 
@@ -62,11 +60,11 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void CheckEnableControlRig()
         {
-            if (!GameInput.GameInputManager.MobileControlRigs.Contains(this))
+            if (!GameInputManager.Instance.MobileControlRigs.Contains(this))
             {
-                GameInput.GameInputManager.MobileControlRigs.Add(this);
+                GameInputManager.Instance.MobileControlRigs.Add(this);
             }
-            EnableControlRig(GameInput.GameInputManager.IsMobileControlRigActive());
+            EnableControlRig(GameInputManager.Instance.IsMobileControlRigActive());
         }
 
 

@@ -18,12 +18,12 @@ public class GameInput : VirtualInput
         Vr,
     }
 
-    static GameInput()
-    {
-        GameInputManager = FindOrCreateGameInputManager();
-    }
+    private readonly GameInputManager _gameInputManager;
 
-    public static GameInputManager GameInputManager { get; set; }
+    public GameInput(GameInputManager manager)
+    {
+        _gameInputManager = manager;
+    }
 
     private readonly VirtualInput _hardwareInput = new StandaloneInput();
 
@@ -34,43 +34,48 @@ public class GameInput : VirtualInput
         get { return _activeInputMethod; }
         set
         {
+            if (_activeInputMethod == value)
+            {
+                return;
+            }
             // Changes the mapping
             _activeInputMethod = value;
 
             // Re-activates mobile control rigs by their need
-            foreach (var rig in GameInputManager.MobileControlRigs)
+            foreach (var rig in _gameInputManager.MobileControlRigs)
             {
                 rig.CheckEnableControlRig();
             }
         }
     }
 
-    // Fast accessor assuming a singleton instance, creating the Manager if it's not found by name
+    // Convenience instance getter, uses the static instance of GameInputManager
     public static GameInput Instance
     {
-        get { return GameInputManager.GameInput; }
+        get { return GameInputManager.Instance.GameInput; }
     }
 
     // This workaround couples these 2 classes so that the Manager can set the value using Editor
     public void UpdateActiveInputMethod()
     {
-        if (GameInputManager.ActiveInputMethod != _activeInputMethod)
-        {
-            ActiveInputMethod = GameInputManager.ActiveInputMethod;
-        }
+        // Reflects the value of the Manager, executing the setter which executes required operations
+        ActiveInputMethod = _gameInputManager.ActiveInputMethod;
+
         // Additionally, when the change was external by modifying the Manager value,
         // the graphical representation within the menu will be updated too
         switch (ActiveInputMethod)
         {
             case ActiveInputMethodType.NonVrKeyboard:
-                GameInputManager.SetActiveInputMethodNonVrKeyboard();
+                _gameInputManager.SetActiveInputMethodNonVrKeyboard();
                 break;
             case ActiveInputMethodType.NonVrPhone:
-                GameInputManager.SetActiveInputMethodNonVrPhone();
+                _gameInputManager.SetActiveInputMethodNonVrPhone();
                 break;
             case ActiveInputMethodType.Vr:
-                GameInputManager.SetActiveInputMethodVr();
+                _gameInputManager.SetActiveInputMethodVr();
                 break;
+            default:
+                throw new NotImplementedException();
         }
     }
 
@@ -130,31 +135,12 @@ public class GameInput : VirtualInput
 
     private Quaternion HeadRotation
     {
-        get { return GameInputManager.Cardboard.HeadPose.Orientation; }
+        get { return _gameInputManager.Cardboard.HeadPose.Orientation; }
     }
 
     private Vector3 HeadPosition
     {
-        get { return GameInputManager.Cardboard.HeadPose.Position; }
-    }
-
-    private static GameInputManager FindOrCreateGameInputManager()
-    {
-        var managerGameObject = GameObject.Find("GameInputManager");
-        if (null != managerGameObject)
-        {
-            return managerGameObject.GetComponent<GameInputManager>();
-        }
-
-        managerGameObject = new GameObject("GameInputManager", typeof(GameInputManager));
-        var allManagersGameObject = GameObject.Find("Managers");
-        if (null != allManagersGameObject)
-        {
-            managerGameObject.transform.parent = allManagersGameObject.transform;
-        }
-        var manager = managerGameObject.GetComponent<GameInputManager>();
-        manager.Reset();
-        return manager;
+        get { return _gameInputManager.Cardboard.HeadPose.Position; }
     }
 
     /// <summary>
