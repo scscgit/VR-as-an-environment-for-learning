@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Toggle support for Menu window.
+/// Toggle and action support for Menu window.
 /// </summary>
 public class MenuController : MonoBehaviour
 {
@@ -10,6 +10,12 @@ public class MenuController : MonoBehaviour
 
 	UIController ui;
 	Animator animator;
+
+	public void QuitGame()
+	{
+		Application.Quit();
+		Debug.Log("The application was quit");
+	}
 
 	void Start()
 	{
@@ -27,16 +33,15 @@ public class MenuController : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetButtonDown("Cancel"))
+		if (GameInput.Instance.GetButtonDown("Cancel"))
 		{
 			animator.enabled = true;
 			var show = ui.isShow;
-			Debug.logger.Log("Escape button pressed, " + (show ? "closing" : "opening") + " menu");
 			if (show)
 			{
 				ui.Hide();
 			}
-			else if (!show)
+			else
 			{
 				ui.Show();
 			}

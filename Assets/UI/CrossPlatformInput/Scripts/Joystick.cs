@@ -32,6 +32,11 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void Start()
         {
+            // Changing the rectangle to a square so that anchors can be .5/.5 and a finger can hold it in the middle
+            var rectTransform = (RectTransform) transform;
+            var rect = rectTransform.rect;
+            rectTransform.offsetMax = new Vector2(rect.height-rect.width, rectTransform.offsetMax.y);
+
             m_StartPos = transform.position;
         }
 

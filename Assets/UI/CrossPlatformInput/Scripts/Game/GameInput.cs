@@ -216,7 +216,7 @@ public class GameInput : VirtualInput
             case ActiveInputMethodType.NonVrKeyboard:
                 return _hardwareInput.GetButton(name);
             case ActiveInputMethodType.NonVrPhone:
-                return GetOrAddButton(name).GetButton;
+                return GetOrAddButton(name).GetButton || _hardwareInput.GetButton(name);
             case ActiveInputMethodType.Vr:
                 return _hardwareInput.GetButton(name);
             default:
@@ -231,7 +231,7 @@ public class GameInput : VirtualInput
             case ActiveInputMethodType.NonVrKeyboard:
                 return _hardwareInput.GetButtonDown(name);
             case ActiveInputMethodType.NonVrPhone:
-                return GetOrAddButton(name).GetButtonDown;
+                return GetOrAddButton(name).GetButtonDown || _hardwareInput.GetButtonDown(name);
             case ActiveInputMethodType.Vr:
                 return _hardwareInput.GetButtonDown(name);
             default:
@@ -246,7 +246,7 @@ public class GameInput : VirtualInput
             case ActiveInputMethodType.NonVrKeyboard:
                 return _hardwareInput.GetButtonUp(name);
             case ActiveInputMethodType.NonVrPhone:
-                return GetOrAddButton(name).GetButtonUp;
+                return GetOrAddButton(name).GetButtonUp || _hardwareInput.GetButtonUp(name);
             case ActiveInputMethodType.Vr:
                 return _hardwareInput.GetButtonUp(name);
             default:

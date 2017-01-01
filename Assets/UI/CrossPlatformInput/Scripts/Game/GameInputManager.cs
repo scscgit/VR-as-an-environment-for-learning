@@ -56,18 +56,21 @@ public class GameInputManager : MonoBehaviour
     {
         ActiveInputMethod = GameInput.ActiveInputMethodType.NonVrKeyboard;
         SetActiveInputMethodCheckmark(CheckmarkNonVrKeyboard);
+        Cardboard.VRModeEnabled = false;
     }
 
     public void SetActiveInputMethodNonVrPhone()
     {
         ActiveInputMethod = GameInput.ActiveInputMethodType.NonVrPhone;
         SetActiveInputMethodCheckmark(CheckmarkNonVrPhone);
+        Cardboard.VRModeEnabled = false;
     }
 
     public void SetActiveInputMethodVr()
     {
         ActiveInputMethod = GameInput.ActiveInputMethodType.Vr;
         SetActiveInputMethodCheckmark(CheckmarkVr);
+        Cardboard.VRModeEnabled = true;
     }
 
     /// <summary>
@@ -112,7 +115,7 @@ public class GameInputManager : MonoBehaviour
         return manager;
     }
 
-    // Needs to be public, as the Reset is internally called by Unity only from the Editor, not during the AddComponent
+    // Unity calls this only when in the Editor, needs to be called manually after the AddComponent call during runtime
     private void Reset()
     {
         ActiveInputMethod = DefaultInputMethod;
