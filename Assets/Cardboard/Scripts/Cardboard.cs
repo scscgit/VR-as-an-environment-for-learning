@@ -37,7 +37,7 @@ public class Cardboard : MonoBehaviour {
   public static Cardboard SDK {
     get {
       if (sdk == null) {
-        if (Application.isEditor && !Application.isPlaying) {
+        if (Application.isEditor) {
           // Let the editor scripts access the object through this property.
           sdk = UnityEngine.Object.FindObjectOfType<Cardboard>();
         } else {
@@ -679,6 +679,10 @@ public class Cardboard : MonoBehaviour {
   }
 
   void OnApplicationFocus(bool focus) {
+    if (device == null) {
+      // Possibly a Unity hot-swap
+      return;
+    }
     device.OnFocus(focus);
   }
 

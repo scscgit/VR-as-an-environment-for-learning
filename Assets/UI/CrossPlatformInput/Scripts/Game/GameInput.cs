@@ -146,51 +146,79 @@ public class GameInput : VirtualInput
     /// <summary>
     /// Returns the rotation angle of given device axis. Use Vector3.right to obtain pitch, Vector3.up for yaw and Vector3.forward for roll.
     /// This is for landscape mode. Up vector is the wide side of the phone and forward vector is where the back camera points to.
+    /// The angle is in degrees with the value between 0 and 360 and represents the player's local view, while jaw being like a compass.
+    /// NOTE: Was tested in GetAxisForVr() but failed to provide assumed results, will be probably removed later as it is obsolete.
     /// Source: http://answers.unity3d.com/questions/434096/lock-rotation-of-gyroscope-controlled-camera-to-fo.html
     /// </summary>
     /// <returns>A scalar value, representing the rotation amount around specified axis.</returns>
     /// <param name="deviceRotation">Rotation of the input device.</param>
     /// <param name="axis">Should be either Vector3.right, Vector3.up or Vector3.forward. Won't work for anything else.</param>
-    private static float GetAngleByDeviceAxis(Quaternion deviceRotation, Vector3 axis)
+    /// <param name="normalize">Change the value to an interval between -1 and 1.</param>
+    [Obsolete]
+    private static float GetAngleByDeviceAxis(Quaternion deviceRotation, Vector3 axis, bool normalize = false)
     {
         Quaternion eliminationOfOthers = Quaternion.Inverse(
             Quaternion.FromToRotation(axis, deviceRotation * axis)
         );
         Vector3 filteredEuler = (eliminationOfOthers * deviceRotation).eulerAngles;
 
-        float result = filteredEuler.z;
-        if (axis == Vector3.up)
+        float result = 0f;
+        if (axis == Vector3.forward)
+        {
+            result = filteredEuler.z;
+        }
+        else if (axis == Vector3.up)
         {
             result = filteredEuler.y;
         }
-        if (axis == Vector3.right)
+        else if (axis == Vector3.right)
         {
             // incorporate different euler representations.
             result = (filteredEuler.y > 90 && filteredEuler.y < 270) ? 180 - filteredEuler.x : filteredEuler.x;
         }
-        return result;
+        return !normalize ? result : NormalizeAngle(result);
+    }
+
+    public static float NormalizeAngle(float angleDegrees)
+    {
+        if (angleDegrees > 180)
+        {
+            angleDegrees -= 360;
+        }
+        return angleDegrees / 180;
     }
 
     private float GetAxisForVr(string name)
     {
-        Vector3 axis;
+        float speed;
         switch (name)
         {
             case "Horizontal":
-                axis = Vector3.right;
+                speed = -NormalizeAngle(HeadRotation.eulerAngles.z);
                 break;
             case "Vertical":
-                axis = Vector3.up;
+                speed = NormalizeAngle(HeadRotation.eulerAngles.x);
                 break;
             case "Mouse X":
-                return HeadRotation.x;
             case "Mouse Y":
-                return HeadRotation.y;
+                return 0;
             default:
                 throw new ArgumentOutOfRangeException("name", "Unknown axis for VR purposes");
         }
-        // TODO: Vector3.forward test
-        return GetAngleByDeviceAxis(HeadRotation, axis);
+
+        // Only a noticeable tilt change greater than the ignored offset will be applied
+        //TODO: solve a difference between VR head and mouse head rotations or center it after switching the input mode
+        var offset = _gameInputManager.TiltMovementVrThreshold;
+        speed = speed < 0
+            ? (speed < -offset
+                ? speed + offset
+                : 0)
+            : (speed > offset
+                ? speed - offset
+                : 0);
+        // Making the value go closer to 1 faster
+        speed *= 20;
+        return speed > 1 ? 1 : speed;
     }
 
     public override float GetAxis(string name, bool raw)
@@ -311,7 +339,8 @@ public class GameInput : VirtualInput
             case ActiveInputMethodType.NonVrPhone:
                 return virtualMousePosition;
             case ActiveInputMethodType.Vr:
-                return HeadPosition;
+                //return HeadPosition;
+                return Vector3.zero;
             default:
                 throw new NotImplementedException();
         }

@@ -53,6 +53,14 @@ public class CardboardHead : MonoBehaviour {
   /// grandparent or higher ancestor is a suitable target.
   public Transform target;
 
+  /// Overrides the receiver of the vertical rotation to be that of an other chosen gameobject instead of this head.
+  /// When used together with systems like CrossPlatformInput, this is where you put your player controller gameobject.
+  public Transform overrideVerticalReceiver;
+
+  /// Overrides the receiver of the horizontal rotation to be that of an other chosen gameobject instead of this head.
+  /// When used together with systems like CrossPlatformInput, this is where you put your main camera gameobject.
+  public Transform overrideHorizontalReceiver;
+
   /// Determines whether the head tracking is applied during `LateUpdate()` or
   /// `Update()`.  The default is false, which means it is applied during `LateUpdate()`
   /// to reduce latency.
@@ -109,7 +117,17 @@ public class CardboardHead : MonoBehaviour {
     if (trackRotation) {
       var rot = Cardboard.SDK.HeadPose.Orientation;
       if (target == null) {
-        transform.localRotation = rot;
+        if (overrideHorizontalReceiver == null && overrideVerticalReceiver == null) {
+          transform.localRotation = rot;
+        } else {
+          // At least one of the overrides is defined, so the rotation is split will be updated in both components
+          // NOTE: if there is only one override defined, this works wrong and will require a fix if it is ever used!
+          var euler = rot.eulerAngles;
+          (overrideHorizontalReceiver != null ? overrideHorizontalReceiver : transform)
+            .localRotation *= Quaternion.Euler(0f, euler.y, euler.z);
+          (overrideVerticalReceiver != null ? overrideVerticalReceiver : transform)
+            .localRotation *= Quaternion.Euler(euler.x, 0f, 0f);
+        }
       } else {
         transform.rotation = target.rotation * rot;
       }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.CrossPlatformInput;
 
 /// <summary>
@@ -35,6 +36,9 @@ public class GameInputManager : MonoBehaviour
     {
         get { return _instance ?? (_instance = FindOrCreateGameInputManager()); }
     }
+
+    // Percentage value for the tilt offset limit within VR that won't cause any movement
+    [Range(0f, 1f)] public float TiltMovementVrThreshold = 0.2f;
 
     public Cardboard Cardboard;
 

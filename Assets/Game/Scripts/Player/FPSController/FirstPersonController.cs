@@ -100,6 +100,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+#if UNITY_EDITOR
+            Debug.DrawRay(transform.position, desiredMove*30, Color.green, 0.05f);
+#endif
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
