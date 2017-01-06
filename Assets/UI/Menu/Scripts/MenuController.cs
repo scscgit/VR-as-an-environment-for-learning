@@ -1,50 +1,58 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Toggle and action support for Menu window.
 /// </summary>
 public class MenuController : MonoBehaviour
 {
-	public GameObject menu;
-	public bool MenuAtStart;
+    // To prevent disable when using the toggle, this script must not be attached to that Menu or any of its children
+    [FormerlySerializedAs("menu")] public GameObject Menu;
+    public bool MenuAtStart;
+    public bool ToggleOnEscape = true;
 
-	UIController ui;
-	Animator animator;
+    private UIController _ui;
+    private Animator _animator;
 
-	public void QuitGame()
-	{
-		Application.Quit();
-		Debug.Log("The application was quit");
-	}
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("The application was quit");
+    }
 
-	void Start()
-	{
-		this.ui = menu.GetComponent<UIController>();
-		this.animator = menu.GetComponent<Animator>();
+    public void ToggleDisplay()
+    {
+        _animator.enabled = true;
+        var show = _ui.isShow;
+        if (show)
+        {
+            _ui.Hide();
+        }
+        else
+        {
+            _ui.Show();
+        }
+    }
 
-		if (!MenuAtStart)
-		{
-			// Pausing the animator, disabling the Menu
-			animator.enabled = false;
-			// Last started animation was Show, we explicitly set Hide
-			ui.Hide();
-		}
-	}
+    private void Start()
+    {
+        _ui = Menu.GetComponent<UIController>();
+        _animator = Menu.GetComponent<Animator>();
 
-	void Update()
-	{
-		if (GameInput.Instance.GetButtonDown("Cancel"))
-		{
-			animator.enabled = true;
-			var show = ui.isShow;
-			if (show)
-			{
-				ui.Hide();
-			}
-			else
-			{
-				ui.Show();
-			}
-		}
-	}
+        if (!MenuAtStart)
+        {
+            // Pausing the animator, disabling the Menu
+            _animator.enabled = false;
+            // Last started animation was Show, we explicitly set Hide
+            _ui.Hide();
+        }
+    }
+
+    private void Update()
+    {
+        if (ToggleOnEscape && GameInput.Instance.GetButtonDown("Cancel"))
+        {
+            ToggleDisplay();
+        }
+    }
 }

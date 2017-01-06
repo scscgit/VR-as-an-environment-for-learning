@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.CrossPlatformInput;
 
 /// <summary>
@@ -42,9 +42,9 @@ public class GameInputManager : MonoBehaviour
 
     public Cardboard Cardboard;
 
-    public GameObject CheckmarkNonVrKeyboard;
-    public GameObject CheckmarkNonVrPhone;
-    public GameObject CheckmarkVr;
+    public GameObject[] CheckmarksNonVrKeyboard;
+    public GameObject[] CheckmarksNonVrPhone;
+    public GameObject[] CheckmarksVr;
 
     // Proxy for the GameInput.ActiveInputMethod
     public GameInput.ActiveInputMethodType ActiveInputMethod;
@@ -59,21 +59,21 @@ public class GameInputManager : MonoBehaviour
     public void SetActiveInputMethodNonVrKeyboard()
     {
         ActiveInputMethod = GameInput.ActiveInputMethodType.NonVrKeyboard;
-        SetActiveInputMethodCheckmark(CheckmarkNonVrKeyboard);
+        SetActiveInputMethodCheckmark(CheckmarksNonVrKeyboard);
         Cardboard.VRModeEnabled = false;
     }
 
     public void SetActiveInputMethodNonVrPhone()
     {
         ActiveInputMethod = GameInput.ActiveInputMethodType.NonVrPhone;
-        SetActiveInputMethodCheckmark(CheckmarkNonVrPhone);
+        SetActiveInputMethodCheckmark(CheckmarksNonVrPhone);
         Cardboard.VRModeEnabled = false;
     }
 
     public void SetActiveInputMethodVr()
     {
         ActiveInputMethod = GameInput.ActiveInputMethodType.Vr;
-        SetActiveInputMethodCheckmark(CheckmarkVr);
+        SetActiveInputMethodCheckmark(CheckmarksVr);
         Cardboard.VRModeEnabled = true;
     }
 
@@ -81,17 +81,18 @@ public class GameInputManager : MonoBehaviour
     /// Methods using this common functionality should be bound to OnClick() events of Menu Buttons
     /// with their individual Checkmark GameObjects being provided beforehand so they can receive a feedback.
     /// </summary>
-    private void SetActiveInputMethodCheckmark(GameObject activeCheckmark)
+    private void SetActiveInputMethodCheckmark(GameObject[] activeCheckmarkType)
     {
-        GameObject[] checkmarks =
+        GameObject[][] checkmarkArrays =
         {
-            CheckmarkNonVrKeyboard, CheckmarkNonVrPhone, CheckmarkVr
+            CheckmarksNonVrKeyboard, CheckmarksNonVrPhone, CheckmarksVr
         };
-        foreach (var checkmark in checkmarks)
+        foreach (var checkmarks in checkmarkArrays)
         {
-            if (checkmark)
+            if (checkmarks == null) continue;
+            foreach (var checkmark in checkmarks)
             {
-                checkmark.SetActive(checkmark.Equals(activeCheckmark));
+                checkmark.SetActive(activeCheckmarkType.Contains(checkmark));
             }
         }
     }
