@@ -90,6 +90,11 @@ public class CardboardHead : MonoBehaviour {
 
   void Awake() {
     Cardboard.Create();
+    if (overrideHorizontalReceiver ^ overrideVerticalReceiver) {
+      Debug.LogWarning("Don't forget to fill either none or both override receivers in CardboardHead "+
+                       "to rotate the camera using VR correctly! Horizontal is advised to be Player, "+
+                       "which is parent of the camera and has First Person Controller attached for movement.");
+    }
   }
 
   private bool updated;

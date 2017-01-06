@@ -38,7 +38,7 @@ public class GameInputManager : MonoBehaviour
     }
 
     // Percentage value for the tilt offset limit within VR that won't cause any movement
-    [Range(0f, 1f)] public float TiltMovementVrThreshold = 0.2f;
+    [Range(0f, 1f)] public float TiltMovementVrThreshold = 0.1f;
 
     public Cardboard Cardboard;
 
