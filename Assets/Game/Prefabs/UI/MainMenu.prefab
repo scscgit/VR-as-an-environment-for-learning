@@ -21,7 +21,7 @@ GameObject:
   - 224: {fileID: 224000012645005390}
   - 222: {fileID: 222000011507526056}
   - 114: {fileID: 114000011290140790}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 224: {fileID: 224000014266050938}
   - 222: {fileID: 222000010093985208}
   - 114: {fileID: 114000012274374154}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - 224: {fileID: 224000010892258518}
   - 222: {fileID: 222000013880136174}
   - 114: {fileID: 114000012357004450}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000011815784562}
   - 114: {fileID: 114000013280697010}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NonVrPhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - 222: {fileID: 222000010815216494}
   - 114: {fileID: 114000012978406106}
   - 114: {fileID: 114000013705821374}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 224000013014075672}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InputOptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - 224: {fileID: 224000012740168942}
   - 222: {fileID: 222000010506016740}
   - 114: {fileID: 114000012692762886}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - 224: {fileID: 224000013983681788}
   - 222: {fileID: 222000011416114148}
   - 114: {fileID: 114000013647880998}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - 224: {fileID: 224000011578373162}
   - 222: {fileID: 222000011665576086}
   - 114: {fileID: 114000013744070382}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - 224: {fileID: 224000011765759412}
   - 222: {fileID: 222000013207348870}
   - 114: {fileID: 114000010382025888}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - 224: {fileID: 224000010160619718}
   - 222: {fileID: 222000012524235736}
   - 114: {fileID: 114000010223725686}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000012946391064}
   - 114: {fileID: 114000011465732186}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NonVrKeyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000012299123912}
   - 114: {fileID: 114000011674237016}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Vr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - 224: {fileID: 224000011287811196}
   - 222: {fileID: 222000010700978916}
   - 114: {fileID: 114000013455104508}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - 222: {fileID: 222000013903248966}
   - 114: {fileID: 114000014149308600}
   - 114: {fileID: 114000011756017348}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Return
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - 224: {fileID: 224000013712250904}
   - 222: {fileID: 222000011187177290}
   - 114: {fileID: 114000011910917158}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   - 114: {fileID: 114000010741933864}
   - 95: {fileID: 95000012170571620}
   - 114: {fileID: 114000011100790098}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - 224: {fileID: 224000012007407594}
   - 222: {fileID: 222000014046009224}
   - 114: {fileID: 114000011924945380}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - 224: {fileID: 224000012142352364}
   - 222: {fileID: 222000010485689318}
   - 114: {fileID: 114000010297783370}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

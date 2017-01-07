@@ -29,6 +29,13 @@ public class GameInputManager : MonoBehaviour
         }
     }
 
+    [NonSerialized] private CardboardHead _cardboardHead;
+
+    public CardboardHead CardboardHead
+    {
+        get { return _cardboardHead ?? (_cardboardHead = Cardboard.GetComponentInChildren<CardboardHead>()); }
+    }
+
     private static GameInputManager _instance;
 
     // Fast accessor assuming a singleton instance, creating the Manager if it's not found by name

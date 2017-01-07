@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using Game.Scripts.Gameplay.Games;
 using UnityEngine;
 using Random = System.Random;
 
-public class NumberOrdering : MonoBehaviour
+public class NumberOrdering : MonoBehaviour, IGame
 {
     public static readonly int TotalNumbers = 10;
-    public static readonly float SizeXOfCrate = 1.55f;
 
-    [SerializeField] private bool _gameStarted;
-    [SerializeField] private readonly GameObject[] _crates = new GameObject[TotalNumbers];
+    private bool _gameStarted;
+    private GameObject[] _crates = new GameObject[TotalNumbers];
+    private Horse _gameLauncher;
     private int _correct;
 
     public GameObject NumberedCratePrefab;
@@ -35,13 +36,14 @@ public class NumberOrdering : MonoBehaviour
         return randomNumbers;
     }
 
-    public void StartGame()
+    public void StartGame(Horse gameLauncher)
     {
         if (_gameStarted)
         {
             return;
         }
         _gameStarted = true;
+        _gameLauncher = gameLauncher;
 
         foreach (Transform deletingCrate in ExampleCrates.transform)
         {
@@ -55,10 +57,7 @@ public class NumberOrdering : MonoBehaviour
             var crate = (GameObject) Instantiate(NumberedCratePrefab, NumberOrderingCratesTransform.transform);
             crate.GetComponent<NumberedCrate>().Number = i;
             crate.transform.localPosition = nextPosition;
-            nextPosition = new Vector3(
-                nextPosition.x + SizeXOfCrate,
-                nextPosition.y,
-                nextPosition.z);
+            nextPosition += new Vector3(NumberedCrate.SizeXOfCrate, 0f, 0f);
             _crates[i] = crate;
         }
     }
@@ -75,6 +74,8 @@ public class NumberOrdering : MonoBehaviour
         {
             crate.GetComponent<NumberedCrate>().DestroyMyselfSafely();
         }
+
+        _gameLauncher.OnGameWon();
     }
 
     public bool VerifySuccess()
