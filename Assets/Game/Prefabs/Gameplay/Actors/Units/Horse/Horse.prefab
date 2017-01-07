@@ -110,6 +110,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010948392138}
   - 95: {fileID: 95000013368115410}
+  - 114: {fileID: 114000011571332366}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Untagged
@@ -217,7 +218,8 @@ GameObject:
   - 4: {fileID: 4000014106355828}
   - 137: {fileID: 137000011659882590}
   - 64: {fileID: 64000013604354600}
-  m_Layer: 0
+  - 114: {fileID: 114000013257822516}
+  m_Layer: 5
   m_Name: Horse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1376,6 +1378,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011571332366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010750764470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619ca255a3feb8747a852506e7fe4302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000013257822516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011186858600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!137 &137000011659882590
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

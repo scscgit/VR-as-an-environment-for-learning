@@ -46,6 +46,23 @@ public class GameInput : VirtualInput
             {
                 rig.CheckEnableControlRig();
             }
+
+            // Additionally, when the change was external by modifying the Manager value,
+            // the graphical representation within the menu will be updated too
+            switch (ActiveInputMethod)
+            {
+                case ActiveInputMethodType.NonVrKeyboard:
+                    _gameInputManager.SetActiveInputMethodNonVrKeyboard();
+                    break;
+                case ActiveInputMethodType.NonVrPhone:
+                    _gameInputManager.SetActiveInputMethodNonVrPhone();
+                    break;
+                case ActiveInputMethodType.Vr:
+                    _gameInputManager.SetActiveInputMethodVr();
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
         }
     }
 
@@ -60,23 +77,6 @@ public class GameInput : VirtualInput
     {
         // Reflects the value of the Manager, executing the setter which executes required operations
         ActiveInputMethod = _gameInputManager.ActiveInputMethod;
-
-        // Additionally, when the change was external by modifying the Manager value,
-        // the graphical representation within the menu will be updated too
-        switch (ActiveInputMethod)
-        {
-            case ActiveInputMethodType.NonVrKeyboard:
-                _gameInputManager.SetActiveInputMethodNonVrKeyboard();
-                break;
-            case ActiveInputMethodType.NonVrPhone:
-                _gameInputManager.SetActiveInputMethodNonVrPhone();
-                break;
-            case ActiveInputMethodType.Vr:
-                _gameInputManager.SetActiveInputMethodVr();
-                break;
-            default:
-                throw new NotImplementedException();
-        }
     }
 
     /// <summary>
