@@ -1576,7 +1576,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3959,6 +3959,52 @@ Transform:
   - {fileID: 1924044193}
   m_Father: {fileID: 1809673}
   m_RootOrder: 2
+--- !u!1001 &1340999375
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1528096743}
+    m_Modifications:
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c38532af13ba8264e88fadbedf2e1af4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1355491327 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013473951098, guid: 31daf95cd74361841b8caa084af36ec5,
@@ -4414,7 +4460,7 @@ Skybox:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1474753015}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 0}
+  m_CustomSkybox: {fileID: 2100000, guid: 3777c2609a2482a48a60ef07326b3646, type: 2}
 --- !u!1 &1513808037 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013242066924, guid: caa175e302a2e0946a4b130f7426b7f1,
@@ -4508,6 +4554,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 626017473}
+  - {fileID: 1841553122}
   m_Father: {fileID: 169139196}
   m_RootOrder: 1
 --- !u!1 &1562605712
@@ -5683,6 +5730,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827996805}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1841553122 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000012716218470, guid: c38532af13ba8264e88fadbedf2e1af4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1340999375}
 --- !u!1 &1856328341
 GameObject:
   m_ObjectHideFlags: 0

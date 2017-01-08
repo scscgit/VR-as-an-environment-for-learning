@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 83ece5d1a3226d24c8225d3dde736a35
+timeCreated: 1483873316
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: dom
+    100004: dvere
+    100006: Hlavna zarubna
+    100008: Hlavne Dvere
+    100010: Lamp
+    100012: okno zarubna
+    100014: okno zarubna.001
+    100016: okno zarubna.002
+    100018: okno zarubna.003
+    100020: okno zarubna.004
+    100022: okno zarubna.005
+    100024: okno zarubna.006
+    100026: okno zarubna.007
+    100028: okno zarubna.008
+    100030: okno zarubna.009
+    100032: //RootNode
+    100034: strechacelokKritina
+    100036: strechaSpodok
+    100038: zarubna.Izba
+    100040: zarubna.Spalna
+    100042: zarubna.Wc
+    100044: zaubna Kuchina
+    400000: Camera
+    400002: dom
+    400004: dvere
+    400006: Hlavna zarubna
+    400008: Hlavne Dvere
+    400010: Lamp
+    400012: okno zarubna
+    400014: okno zarubna.001
+    400016: okno zarubna.002
+    400018: okno zarubna.003
+    400020: okno zarubna.004
+    400022: okno zarubna.005
+    400024: okno zarubna.006
+    400026: okno zarubna.007
+    400028: okno zarubna.008
+    400030: okno zarubna.009
+    400032: //RootNode
+    400034: strechacelokKritina
+    400036: strechaSpodok
+    400038: zarubna.Izba
+    400040: zarubna.Spalna
+    400042: zarubna.Wc
+    400044: zaubna Kuchina
+    2300000: dom
+    2300002: dvere
+    2300004: Hlavna zarubna
+    2300006: Hlavne Dvere
+    2300008: okno zarubna
+    2300010: okno zarubna.001
+    2300012: okno zarubna.002
+    2300014: okno zarubna.003
+    2300016: okno zarubna.004
+    2300018: okno zarubna.005
+    2300020: okno zarubna.006
+    2300022: okno zarubna.007
+    2300024: okno zarubna.008
+    2300026: okno zarubna.009
+    2300028: strechacelokKritina
+    2300030: strechaSpodok
+    2300032: zarubna.Izba
+    2300034: zarubna.Spalna
+    2300036: zarubna.Wc
+    2300038: zaubna Kuchina
+    3300000: dom
+    3300002: dvere
+    3300004: Hlavna zarubna
+    3300006: Hlavne Dvere
+    3300008: okno zarubna
+    3300010: okno zarubna.001
+    3300012: okno zarubna.002
+    3300014: okno zarubna.003
+    3300016: okno zarubna.004
+    3300018: okno zarubna.005
+    3300020: okno zarubna.006
+    3300022: okno zarubna.007
+    3300024: okno zarubna.008
+    3300026: okno zarubna.009
+    3300028: strechacelokKritina
+    3300030: strechaSpodok
+    3300032: zarubna.Izba
+    3300034: zarubna.Spalna
+    3300036: zarubna.Wc
+    3300038: zaubna Kuchina
+    4300000: strechaSpodok
+    4300002: strechacelokKritina
+    4300004: okno zarubna.009
+    4300006: okno zarubna.008
+    4300008: okno zarubna.007
+    4300010: okno zarubna.006
+    4300012: okno zarubna.005
+    4300014: okno zarubna.004
+    4300016: okno zarubna.003
+    4300018: okno zarubna.002
+    4300020: okno zarubna.001
+    4300022: okno zarubna
+    4300024: zaubna Kuchina
+    4300026: zarubna.Wc
+    4300028: zarubna.Izba
+    4300030: zarubna.Spalna
+    4300032: dvere
+    4300034: Hlavne Dvere
+    4300036: Hlavna zarubna
+    4300038: dom
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
