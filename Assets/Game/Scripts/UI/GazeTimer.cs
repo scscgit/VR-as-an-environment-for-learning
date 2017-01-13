@@ -35,16 +35,22 @@ public class GazeTimer
 
     public void PointerClick()
     {
+        // The click should not happen right after the player looks away, but he can click manually multiple times
+        if (!Gazing && !Clicked)
+        {
+            return;
+        }
         _pointerClick();
         Clicked = true;
+        Gazing = false;
     }
 
     public void Update()
     {
-        if (Gazing && Time.time > _gazeStartTime + _gazeTime())
+        // Only the first click during a single gaze counts
+        if (Gazing && !Clicked && Time.time > _gazeStartTime + _gazeTime())
         {
             PointerClick();
-            Gazing = false;
         }
     }
 }

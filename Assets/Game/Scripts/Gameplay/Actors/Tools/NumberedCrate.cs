@@ -1,16 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [SelectionBase]
-public class NumberedCrate : MonoBehaviour
+public class NumberedCrate : GazeBehaviour
 {
     public static readonly float SizeXOfCrate = 1.55f;
     public static readonly float PhysicsForceMultiplier = 20;
 
     public int Number;
-    public float GazeTime = 1;
-    [NonSerialized] public GazeTimer GazeTimer;
 
     private ParticleSystem _particleSystem;
     private Vector3 _delta;
@@ -40,31 +37,8 @@ public class NumberedCrate : MonoBehaviour
         Destroy(gameObject, 0.1f);
     }
 
-    /// <summary>
-    /// Callback from a Game that has been won
-    /// </summary>
-    public void OnGameWon()
+    protected override void Click()
     {
-    }
-
-    public void PointerEnter()
-    {
-        GazeTimer.PointerEnter();
-    }
-
-    public void PointerExit()
-    {
-        GazeTimer.PointerExit();
-    }
-
-    public void PointerClick()
-    {
-        // Only the first click during a single gaze counts
-        if (GazeTimer.Clicked)
-        {
-            return;
-        }
-
         _particleSystem.Play();
         var hit = RaycastPointFromCamera(HeadRotation);
         _delta = new Vector3(
@@ -86,11 +60,6 @@ public class NumberedCrate : MonoBehaviour
         return hit.point;
     }
 
-    private void OnEnable()
-    {
-        GazeTimer = new GazeTimer(PointerClick, () => GazeTime);
-    }
-
     private void Start()
     {
         var texts = GetComponentsInChildren<Text>();
@@ -101,9 +70,9 @@ public class NumberedCrate : MonoBehaviour
         _particleSystem = GetComponent<ParticleSystem>();
     }
 
-    private void Update()
+    protected new void Update()
     {
-        GazeTimer.Update();
+        base.Update();
         if (!GazeTimer.Clicked)
         {
             return;

@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bb4e1b2a0a04d2ea3b96ff7e05685c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vrModeOnly: 1
+  vrModeOnly: 0
   clickTime: 0.1
   hotspot: {x: 0.5, y: 0.5}
 --- !u!4 &316631488 stripped

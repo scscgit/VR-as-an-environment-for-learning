@@ -11,10 +11,8 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#if UNITY_EDITOR
 
 using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
 
 // Sends simulated values for use when testing within the Unity Editor.
@@ -60,11 +58,7 @@ public class UnityEditorDevice : BaseVRDevice {
   private bool RemoteCommunicating {
     get {
       if (!remoteCommunicating) {
-#if UNITY_5
-        remoteCommunicating = EditorApplication.isRemoteConnected;
-#else
         remoteCommunicating = Vector3.Dot(Input.gyro.rotationRate, Input.gyro.rotationRate) > 0.05;
-#endif
       }
       return remoteCommunicating;
     }
@@ -122,5 +116,3 @@ public class UnityEditorDevice : BaseVRDevice {
     }
   }
 }
-
-#endif

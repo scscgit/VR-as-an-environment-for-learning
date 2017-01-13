@@ -283,7 +283,6 @@ public class Cardboard : MonoBehaviour {
   private bool syncWithCardboardApp = false;
 #endif
 
-#if UNITY_EDITOR
   /// Restores level head tilt in when playing in the Unity Editor after you
   /// release the Ctrl key.
   public bool autoUntiltHead = true;
@@ -327,7 +326,6 @@ public class Cardboard : MonoBehaviour {
   }
   [SerializeField]
   private CardboardProfile.DeviceTypes deviceType = CardboardProfile.DeviceTypes.CardboardMay2015;
-#endif
 
   // The VR device that will be providing input data.
   private static BaseVRDevice device;

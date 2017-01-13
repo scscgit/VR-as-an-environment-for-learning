@@ -267,14 +267,12 @@ public abstract class BaseVRDevice {
 
   public static BaseVRDevice GetDevice() {
     if (device == null) {
-#if UNITY_EDITOR
-      device = new UnityEditorDevice();
-#elif ANDROID_DEVICE
+#if ANDROID_DEVICE
       device = new CardboardAndroidDevice();
 #elif IPHONE_DEVICE
       device = new CardboardiOSDevice();
 #else
-      throw new InvalidOperationException("Unsupported device.");
+      device = new UnityEditorDevice();
 #endif
     }
     return device;
