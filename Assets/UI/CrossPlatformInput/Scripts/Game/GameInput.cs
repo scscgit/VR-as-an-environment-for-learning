@@ -335,9 +335,11 @@ public class GameInput : VirtualInput
         switch (ActiveInputMethod)
         {
             case ActiveInputMethodType.NonVrKeyboard:
-                return _hardwareInput.MousePosition();
+                //return _hardwareInput.MousePosition();
+                return Vector3.zero;
             case ActiveInputMethodType.NonVrPhone:
-                return virtualMousePosition;
+                //return virtualMousePosition;
+                return Vector3.zero;
             case ActiveInputMethodType.Vr:
                 //return HeadPosition;
                 return Vector3.zero;

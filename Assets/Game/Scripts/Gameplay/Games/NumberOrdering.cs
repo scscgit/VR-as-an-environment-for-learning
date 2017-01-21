@@ -15,6 +15,8 @@ public class NumberOrdering : MonoBehaviour, IGame
     public GameObject NumberedCratePrefab;
     public GameObject NumberOrderingCratesTransform;
     public GameObject ExampleCrates;
+    [Tooltip("Objects explaining the rules, will be activated when the game starts and deactivated when it ends")]
+    public GameObject[] CrateMarkers;
 
     public static IList<int> RandomlyOrderedNumbers(int max)
     {
@@ -57,8 +59,13 @@ public class NumberOrdering : MonoBehaviour, IGame
             var crate = (GameObject) Instantiate(NumberedCratePrefab, NumberOrderingCratesTransform.transform);
             crate.GetComponent<NumberedCrate>().Number = i;
             crate.transform.localPosition = nextPosition;
-            nextPosition += new Vector3(NumberedCrate.SizeXOfCrate, 0f, 0f);
+            nextPosition += new Vector3(NumberedCrate.WidthOfCrate, 0f, 0f);
             _crates[i] = crate;
+        }
+
+        foreach (var marker in CrateMarkers)
+        {
+            marker.SetActive(true);
         }
     }
 
@@ -73,6 +80,11 @@ public class NumberOrdering : MonoBehaviour, IGame
         foreach (var crate in _crates)
         {
             crate.GetComponent<NumberedCrate>().DestroyMyselfSafely();
+        }
+
+        foreach (var marker in CrateMarkers)
+        {
+            marker.SetActive(false);
         }
 
         _gameLauncher.OnGameWon();

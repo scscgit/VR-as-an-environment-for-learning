@@ -36,6 +36,31 @@ public class GameInputManager : MonoBehaviour
         get { return _cardboardHead ?? (_cardboardHead = Cardboard.GetComponentInChildren<CardboardHead>()); }
     }
 
+    public Quaternion HeadRotation
+    {
+        get
+        {
+            var cardboardHead = CardboardHead;
+            var headRotation = Quaternion.Euler(
+                cardboardHead.overrideVerticalReceiver.transform.localRotation.eulerAngles.x,
+                cardboardHead.overrideHorizontalReceiver.transform.localRotation.eulerAngles.y,
+                cardboardHead.overrideHorizontalReceiver.transform.localRotation.eulerAngles.z
+            );
+            return headRotation;
+        }
+    }
+
+    [NonSerialized] private GazeInputModule _gazeInputModule;
+
+    public GazeInputModule GazeInputModule
+    {
+        get
+        {
+            return _gazeInputModule ??
+                   (_gazeInputModule = GameObject.Find("EventSystem").GetComponentInChildren<GazeInputModule>());
+        }
+    }
+
     private static GameInputManager _instance;
 
     // Fast accessor assuming a singleton instance, creating the Manager if it's not found by name
@@ -68,6 +93,7 @@ public class GameInputManager : MonoBehaviour
         ActiveInputMethod = GameInput.ActiveInputMethodType.NonVrKeyboard;
         SetActiveInputMethodCheckmark(CheckmarksNonVrKeyboard);
         Cardboard.VRModeEnabled = false;
+        GazeInputModule.vrModeOnly = false;
     }
 
     public void SetActiveInputMethodNonVrPhone()
@@ -75,6 +101,7 @@ public class GameInputManager : MonoBehaviour
         ActiveInputMethod = GameInput.ActiveInputMethodType.NonVrPhone;
         SetActiveInputMethodCheckmark(CheckmarksNonVrPhone);
         Cardboard.VRModeEnabled = false;
+        GazeInputModule.vrModeOnly = true;
     }
 
     public void SetActiveInputMethodVr()
@@ -82,6 +109,7 @@ public class GameInputManager : MonoBehaviour
         ActiveInputMethod = GameInput.ActiveInputMethodType.Vr;
         SetActiveInputMethodCheckmark(CheckmarksVr);
         Cardboard.VRModeEnabled = true;
+        GazeInputModule.vrModeOnly = true;
     }
 
     /// <summary>

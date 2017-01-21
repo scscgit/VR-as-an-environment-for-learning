@@ -4,28 +4,15 @@ using UnityEngine.UI;
 [SelectionBase]
 public class NumberedCrate : GazeBehaviour
 {
-    public static readonly float SizeXOfCrate = 1.55f;
-    public static readonly float PhysicsForceMultiplier = 20;
+    public static readonly float WidthOfCrate = 1.55f;
+    protected static readonly float PhysicsMultiplier = 20;
+    protected static readonly Vector3 CenterOffset = new Vector3(0f, WidthOfCrate / 2, 0f);
 
     public int Number;
 
+    private Rigidbody _rigidbody;
     private ParticleSystem _particleSystem;
-    private Vector3 _delta;
     private float _zStartAxis;
-
-    private static Quaternion HeadRotation
-    {
-        get
-        {
-            var cardboardHead = GameInputManager.Instance.CardboardHead;
-            var headRotation = Quaternion.Euler(
-                cardboardHead.overrideVerticalReceiver.transform.localRotation.eulerAngles.x,
-                cardboardHead.overrideHorizontalReceiver.transform.localRotation.eulerAngles.y,
-                cardboardHead.overrideHorizontalReceiver.transform.localRotation.eulerAngles.z
-            );
-            return headRotation;
-        }
-    }
 
     /// <summary>
     /// There is a Unity glitch that deleting a Canvas (either through Destroy() or by deleting from the Editor)
@@ -40,12 +27,6 @@ public class NumberedCrate : GazeBehaviour
     protected override void Click()
     {
         _particleSystem.Play();
-        var hit = RaycastPointFromCamera(HeadRotation);
-        _delta = new Vector3(
-            transform.position.x - hit.x,
-            transform.position.y - hit.y,
-            0f
-        );
         _zStartAxis = transform.position.z;
     }
 
@@ -67,22 +48,29 @@ public class NumberedCrate : GazeBehaviour
         {
             text.text = Number.ToString();
         }
+        _rigidbody = GetComponent<Rigidbody>();
         _particleSystem = GetComponent<ParticleSystem>();
+
+        // Crate cannot be rotated in this game
+        _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    protected new void Update()
+    /// <summary>
+    /// The correct new HeadRotation value is only available in the LateUpdate when in VR, Update was not enough.
+    /// </summary>
+    protected void LateUpdate()
     {
-        base.Update();
         if (!GazeTimer.Clicked)
         {
             return;
         }
 
-        var hit = RaycastPointFromCamera(HeadRotation);
-        var startPosition = transform.position + _delta;
+        // TODO: make sure why hot-swap breaks HeadRotation values
+        var hit = RaycastPointFromCamera(GameInputManager.Instance.HeadRotation);
+        var startPosition = transform.position + CenterOffset;
         var endPosition = new Vector3(hit.x, hit.y, _zStartAxis);
 
-        GetComponent<Rigidbody>().AddForce((endPosition - startPosition) * PhysicsForceMultiplier);
+        _rigidbody.velocity = (endPosition - startPosition) * PhysicsMultiplier;
 
         // Draws lines describing the difference between positions
         Debug.DrawLine(Camera.main.transform.position, startPosition, Color.red);

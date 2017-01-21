@@ -18,7 +18,7 @@ using System.Collections;
 
 public class CardboardMenu {
   // Setup wizard
-  //[MenuItem("Cardboard/Cardboard Setup...", false, 20)]
+  [MenuItem("Cardboard/Cardboard Setup...", false, 20)]
   private static void ModifyExistingCamera() {
     // Show helper dialog.
     CardboardSetup.ShowWindow();
