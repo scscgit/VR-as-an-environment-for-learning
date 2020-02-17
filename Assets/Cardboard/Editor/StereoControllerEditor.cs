@@ -87,7 +87,7 @@ public class StereoControllerEditor : Editor {
 
     // Remember current state of stereo rig.
 #if !UNITY_5
-    bool hadSkybox = go.GetComponent<SkyboxMesh>() != null;
+    // bool hadSkybox = go.GetComponent<SkyboxMesh>() != null;
 #endif
     bool hadHead = controller.Head != null;
     bool hadEyes = controller.Eyes.Length > 0;
@@ -98,14 +98,14 @@ public class StereoControllerEditor : Editor {
 
 #if !UNITY_5
     // Skybox mesh.  Deletes it if camera is not Main.
-    var skybox = go.GetComponent<SkyboxMesh>();
-    if (skybox != null) {
-      if (!hadSkybox) {
-        Undo.RegisterCreatedObjectUndo(skybox, ACTION_NAME);
-      } else if (go.GetComponent<Camera>().tag != "MainCamera") {
-        Undo.DestroyObjectImmediate(skybox);
-      }
-    }
+    // var skybox = go.GetComponent<SkyboxMesh>();
+    // if (skybox != null) {
+    //   if (!hadSkybox) {
+    //     Undo.RegisterCreatedObjectUndo(skybox, ACTION_NAME);
+    //   } else if (go.GetComponent<Camera>().tag != "MainCamera") {
+    //     Undo.DestroyObjectImmediate(skybox);
+    //   }
+    // }
 #endif
 
     // Head.

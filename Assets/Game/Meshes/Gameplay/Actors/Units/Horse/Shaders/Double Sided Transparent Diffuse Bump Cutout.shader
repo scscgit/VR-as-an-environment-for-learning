@@ -1,9 +1,7 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Shader created with Shader Forge v1.26 
-// Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
+// Shader created with Shader Forge v1.40 
+// Shader Forge (c) Freya Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.26;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:True,rprd:True,enco:False,rmgx:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:2,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False;n:type:ShaderForge.SFN_Final,id:9123,x:32987,y:32692,varname:node_9123,prsc:2|diff-8824-OUT,spec-9061-OUT,gloss-1274-OUT,normal-3588-OUT,clip-1035-A;n:type:ShaderForge.SFN_Tex2d,id:1035,x:32449,y:32363,ptovrint:False,ptlb:Diffuse Map (Cutout A),ptin:_DiffuseMapCutoutA,varname:node_1035,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:8824,x:32682,y:32440,varname:node_8824,prsc:2|A-1035-RGB,B-9096-RGB;n:type:ShaderForge.SFN_Color,id:9096,x:32449,y:32552,ptovrint:False,ptlb:Diffuse color,ptin:_Diffusecolor,varname:node_9096,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Tex2d,id:3318,x:32472,y:33461,ptovrint:False,ptlb:Normal Map,ptin:_NormalMap,varname:node_3318,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:3024,x:32304,y:33690,ptovrint:False,ptlb:Normal Intensity,ptin:_NormalIntensity,varname:node_3024,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:2;n:type:ShaderForge.SFN_Tex2d,id:9576,x:31797,y:32738,ptovrint:False,ptlb:Specular Map,ptin:_SpecularMap,varname:node_9576,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Color,id:3546,x:32164,y:33034,ptovrint:False,ptlb:Spec color,ptin:_Speccolor,varname:node_3546,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Multiply,id:1450,x:32139,y:32806,varname:node_1450,prsc:2|A-9576-RGB,B-7242-OUT;n:type:ShaderForge.SFN_Multiply,id:9061,x:32341,y:32861,varname:node_9061,prsc:2|A-1450-OUT,B-3546-RGB;n:type:ShaderForge.SFN_Slider,id:7242,x:31796,y:33004,ptovrint:False,ptlb:Spec Intensity,ptin:_SpecIntensity,varname:node_7242,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.5,max:2;n:type:ShaderForge.SFN_Slider,id:1274,x:32736,y:32210,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:node_1274,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.3,max:1;n:type:ShaderForge.SFN_Lerp,id:3588,x:32751,y:33293,varname:node_3588,prsc:2|A-7084-OUT,B-3318-RGB,T-3024-OUT;n:type:ShaderForge.SFN_Vector3,id:7084,x:32457,y:33365,varname:node_7084,prsc:2,v1:0,v2:0,v3:1;proporder:9096-1035-3318-3024-9576-3546-7242-1274;pass:END;sub:END;*/
+/*SF_DATA;ver:1.40;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,cpap:True,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:True,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:2,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:9123,x:32987,y:32692,varname:node_9123,prsc:2|diff-8824-OUT,spec-9061-OUT,gloss-1274-OUT,normal-3588-OUT,clip-1035-A;n:type:ShaderForge.SFN_Tex2d,id:1035,x:32449,y:32363,ptovrint:False,ptlb:Diffuse Map (Cutout A),ptin:_DiffuseMapCutoutA,varname:node_1035,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:8824,x:32682,y:32440,varname:node_8824,prsc:2|A-1035-RGB,B-9096-RGB;n:type:ShaderForge.SFN_Color,id:9096,x:32449,y:32552,ptovrint:False,ptlb:Diffuse color,ptin:_Diffusecolor,varname:node_9096,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Tex2d,id:3318,x:32472,y:33461,ptovrint:False,ptlb:Normal Map,ptin:_NormalMap,varname:node_3318,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:3024,x:32304,y:33690,ptovrint:False,ptlb:Normal Intensity,ptin:_NormalIntensity,varname:node_3024,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:2;n:type:ShaderForge.SFN_Tex2d,id:9576,x:31797,y:32738,ptovrint:False,ptlb:Specular Map,ptin:_SpecularMap,varname:node_9576,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Color,id:3546,x:32164,y:33034,ptovrint:False,ptlb:Spec color,ptin:_Speccolor,varname:node_3546,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Multiply,id:1450,x:32139,y:32806,varname:node_1450,prsc:2|A-9576-RGB,B-7242-OUT;n:type:ShaderForge.SFN_Multiply,id:9061,x:32341,y:32861,varname:node_9061,prsc:2|A-1450-OUT,B-3546-RGB;n:type:ShaderForge.SFN_Slider,id:7242,x:31796,y:33004,ptovrint:False,ptlb:Spec Intensity,ptin:_SpecIntensity,varname:node_7242,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.5,max:2;n:type:ShaderForge.SFN_Slider,id:1274,x:32736,y:32210,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:node_1274,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.3,max:1;n:type:ShaderForge.SFN_Lerp,id:3588,x:32819,y:33330,varname:node_3588,prsc:2|A-7084-OUT,B-3318-RGB,T-3024-OUT;n:type:ShaderForge.SFN_Vector3,id:7084,x:32457,y:33365,varname:node_7084,prsc:2,v1:0,v2:0,v3:1;proporder:9096-1035-3318-3024-9576-3546-7242-1274;pass:END;sub:END;*/
 
 Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
     Properties {
@@ -33,9 +31,9 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_FORWARDBASE
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
+            #pragma multi_compile_instancing
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
             #include "Lighting.cginc"
@@ -46,17 +44,19 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers xbox360 ps3 
             #pragma target 3.0
             uniform sampler2D _DiffuseMapCutoutA; uniform float4 _DiffuseMapCutoutA_ST;
-            uniform float4 _Diffusecolor;
             uniform sampler2D _NormalMap; uniform float4 _NormalMap_ST;
-            uniform float _NormalIntensity;
             uniform sampler2D _SpecularMap; uniform float4 _SpecularMap_ST;
-            uniform float4 _Speccolor;
-            uniform float _SpecIntensity;
-            uniform float _Gloss;
+            UNITY_INSTANCING_BUFFER_START( Props )
+                UNITY_DEFINE_INSTANCED_PROP( float4, _Diffusecolor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _NormalIntensity)
+                UNITY_DEFINE_INSTANCED_PROP( float4, _Speccolor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _SpecIntensity)
+                UNITY_DEFINE_INSTANCED_PROP( float, _Gloss)
+            UNITY_INSTANCING_BUFFER_END( Props )
             struct VertexInput {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
                 float4 tangent : TANGENT;
@@ -65,6 +65,7 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float2 texcoord2 : TEXCOORD2;
             };
             struct VertexOutput {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
                 float4 pos : SV_POSITION;
                 float2 uv0 : TEXCOORD0;
                 float2 uv1 : TEXCOORD1;
@@ -81,6 +82,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
+                UNITY_SETUP_INSTANCE_ID( v );
+                UNITY_TRANSFER_INSTANCE_ID( v, o );
                 o.uv0 = v.texcoord0;
                 o.uv1 = v.texcoord1;
                 o.uv2 = v.texcoord2;
@@ -96,12 +99,13 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
+                o.pos = UnityObjectToClipPos( v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
             float4 frag(VertexOutput i, float facing : VFACE) : COLOR {
+                UNITY_SETUP_INSTANCE_ID( i );
                 float isFrontFace = ( facing >= 0 ? 1 : 0 );
                 float faceSign = ( facing >= 0 ? 1 : -1 );
                 i.normalDir = normalize(i.normalDir);
@@ -109,7 +113,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.bitangentDir, i.normalDir);
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
                 float3 _NormalMap_var = UnpackNormal(tex2D(_NormalMap,TRANSFORM_TEX(i.uv0, _NormalMap)));
-                float3 normalLocal = lerp(float3(0,0,1),_NormalMap_var.rgb,_NormalIntensity);
+                float _NormalIntensity_var = UNITY_ACCESS_INSTANCED_PROP( Props, _NormalIntensity );
+                float3 normalLocal = lerp(float3(0,0,1),_NormalMap_var.rgb,_NormalIntensity_var);
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 viewReflectDirection = reflect( -viewDirection, normalDirection );
                 float4 _DiffuseMapCutoutA_var = tex2D(_DiffuseMapCutoutA,TRANSFORM_TEX(i.uv0, _DiffuseMapCutoutA));
@@ -121,8 +126,9 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float attenuation = LIGHT_ATTENUATION(i);
                 float3 attenColor = attenuation * _LightColor0.xyz;
 ///////// Gloss:
-                float gloss = _Gloss;
-                float specPow = exp2( gloss * 10.0+1.0);
+                float _Gloss_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Gloss );
+                float gloss = _Gloss_var;
+                float specPow = exp2( gloss * 10.0 + 1.0 );
 /////// GI Data:
                 UnityLight light;
                 #ifdef LIGHTMAP_OFF
@@ -145,13 +151,17 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 #else
                     d.ambient = i.ambientOrLightmapUV;
                 #endif
-                d.boxMax[0] = unity_SpecCube0_BoxMax;
-                d.boxMin[0] = unity_SpecCube0_BoxMin;
-                d.probePosition[0] = unity_SpecCube0_ProbePosition;
+                #if UNITY_SPECCUBE_BLENDING || UNITY_SPECCUBE_BOX_PROJECTION
+                    d.boxMin[0] = unity_SpecCube0_BoxMin;
+                    d.boxMin[1] = unity_SpecCube1_BoxMin;
+                #endif
+                #if UNITY_SPECCUBE_BOX_PROJECTION
+                    d.boxMax[0] = unity_SpecCube0_BoxMax;
+                    d.boxMax[1] = unity_SpecCube1_BoxMax;
+                    d.probePosition[0] = unity_SpecCube0_ProbePosition;
+                    d.probePosition[1] = unity_SpecCube1_ProbePosition;
+                #endif
                 d.probeHDR[0] = unity_SpecCube0_HDR;
-                d.boxMax[1] = unity_SpecCube1_BoxMax;
-                d.boxMin[1] = unity_SpecCube1_BoxMin;
-                d.probePosition[1] = unity_SpecCube1_ProbePosition;
                 d.probeHDR[1] = unity_SpecCube1_HDR;
                 Unity_GlossyEnvironmentData ugls_en_data;
                 ugls_en_data.roughness = 1.0 - gloss;
@@ -160,10 +170,12 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 lightDirection = gi.light.dir;
                 lightColor = gi.light.color;
 ////// Specular:
-                float NdotL = max(0, dot( normalDirection, lightDirection ));
+                float NdotL = saturate(dot( normalDirection, lightDirection ));
                 float4 _SpecularMap_var = tex2D(_SpecularMap,TRANSFORM_TEX(i.uv0, _SpecularMap));
-                float3 specularColor = ((_SpecularMap_var.rgb*_SpecIntensity)*_Speccolor.rgb);
-                float3 directSpecular = 1 * pow(max(0,dot(halfDirection,normalDirection)),specPow)*specularColor;
+                float _SpecIntensity_var = UNITY_ACCESS_INSTANCED_PROP( Props, _SpecIntensity );
+                float4 _Speccolor_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Speccolor );
+                float3 specularColor = ((_SpecularMap_var.rgb*_SpecIntensity_var)*_Speccolor_var.rgb);
+                float3 directSpecular = attenColor * pow(max(0,dot(halfDirection,normalDirection)),specPow)*specularColor;
                 float3 indirectSpecular = (gi.indirect.specular)*specularColor;
                 float3 specular = (directSpecular + indirectSpecular);
 /////// Diffuse:
@@ -171,7 +183,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float3 directDiffuse = max( 0.0, NdotL) * attenColor;
                 float3 indirectDiffuse = float3(0,0,0);
                 indirectDiffuse += gi.indirect.diffuse;
-                float3 diffuseColor = (_DiffuseMapCutoutA_var.rgb*_Diffusecolor.rgb);
+                float4 _Diffusecolor_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Diffusecolor );
+                float3 diffuseColor = (_DiffuseMapCutoutA_var.rgb*_Diffusecolor_var.rgb);
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
@@ -193,9 +206,9 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_FORWARDADD
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
+            #pragma multi_compile_instancing
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
             #include "Lighting.cginc"
@@ -206,17 +219,19 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers xbox360 ps3 
             #pragma target 3.0
             uniform sampler2D _DiffuseMapCutoutA; uniform float4 _DiffuseMapCutoutA_ST;
-            uniform float4 _Diffusecolor;
             uniform sampler2D _NormalMap; uniform float4 _NormalMap_ST;
-            uniform float _NormalIntensity;
             uniform sampler2D _SpecularMap; uniform float4 _SpecularMap_ST;
-            uniform float4 _Speccolor;
-            uniform float _SpecIntensity;
-            uniform float _Gloss;
+            UNITY_INSTANCING_BUFFER_START( Props )
+                UNITY_DEFINE_INSTANCED_PROP( float4, _Diffusecolor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _NormalIntensity)
+                UNITY_DEFINE_INSTANCED_PROP( float4, _Speccolor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _SpecIntensity)
+                UNITY_DEFINE_INSTANCED_PROP( float, _Gloss)
+            UNITY_INSTANCING_BUFFER_END( Props )
             struct VertexInput {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
                 float4 tangent : TANGENT;
@@ -225,6 +240,7 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float2 texcoord2 : TEXCOORD2;
             };
             struct VertexOutput {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
                 float4 pos : SV_POSITION;
                 float2 uv0 : TEXCOORD0;
                 float2 uv1 : TEXCOORD1;
@@ -238,6 +254,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
+                UNITY_SETUP_INSTANCE_ID( v );
+                UNITY_TRANSFER_INSTANCE_ID( v, o );
                 o.uv0 = v.texcoord0;
                 o.uv1 = v.texcoord1;
                 o.uv2 = v.texcoord2;
@@ -246,12 +264,13 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
+                o.pos = UnityObjectToClipPos( v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
             float4 frag(VertexOutput i, float facing : VFACE) : COLOR {
+                UNITY_SETUP_INSTANCE_ID( i );
                 float isFrontFace = ( facing >= 0 ? 1 : 0 );
                 float faceSign = ( facing >= 0 ? 1 : -1 );
                 i.normalDir = normalize(i.normalDir);
@@ -259,7 +278,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.bitangentDir, i.normalDir);
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
                 float3 _NormalMap_var = UnpackNormal(tex2D(_NormalMap,TRANSFORM_TEX(i.uv0, _NormalMap)));
-                float3 normalLocal = lerp(float3(0,0,1),_NormalMap_var.rgb,_NormalIntensity);
+                float _NormalIntensity_var = UNITY_ACCESS_INSTANCED_PROP( Props, _NormalIntensity );
+                float3 normalLocal = lerp(float3(0,0,1),_NormalMap_var.rgb,_NormalIntensity_var);
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float4 _DiffuseMapCutoutA_var = tex2D(_DiffuseMapCutoutA,TRANSFORM_TEX(i.uv0, _DiffuseMapCutoutA));
                 clip(_DiffuseMapCutoutA_var.a - 0.5);
@@ -270,18 +290,22 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 float attenuation = LIGHT_ATTENUATION(i);
                 float3 attenColor = attenuation * _LightColor0.xyz;
 ///////// Gloss:
-                float gloss = _Gloss;
-                float specPow = exp2( gloss * 10.0+1.0);
+                float _Gloss_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Gloss );
+                float gloss = _Gloss_var;
+                float specPow = exp2( gloss * 10.0 + 1.0 );
 ////// Specular:
-                float NdotL = max(0, dot( normalDirection, lightDirection ));
+                float NdotL = saturate(dot( normalDirection, lightDirection ));
                 float4 _SpecularMap_var = tex2D(_SpecularMap,TRANSFORM_TEX(i.uv0, _SpecularMap));
-                float3 specularColor = ((_SpecularMap_var.rgb*_SpecIntensity)*_Speccolor.rgb);
+                float _SpecIntensity_var = UNITY_ACCESS_INSTANCED_PROP( Props, _SpecIntensity );
+                float4 _Speccolor_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Speccolor );
+                float3 specularColor = ((_SpecularMap_var.rgb*_SpecIntensity_var)*_Speccolor_var.rgb);
                 float3 directSpecular = attenColor * pow(max(0,dot(halfDirection,normalDirection)),specPow)*specularColor;
                 float3 specular = directSpecular;
 /////// Diffuse:
                 NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 float3 directDiffuse = max( 0.0, NdotL) * attenColor;
-                float3 diffuseColor = (_DiffuseMapCutoutA_var.rgb*_Diffusecolor.rgb);
+                float4 _Diffusecolor_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Diffusecolor );
+                float3 diffuseColor = (_DiffuseMapCutoutA_var.rgb*_Diffusecolor_var.rgb);
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
@@ -297,11 +321,11 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 "LightMode"="ShadowCaster"
             }
             Offset 1, 1
+            Cull Off
             
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_SHADOWCASTER
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
             #include "UnityCG.cginc"
@@ -314,7 +338,6 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers xbox360 ps3 
             #pragma target 3.0
             uniform sampler2D _DiffuseMapCutoutA; uniform float4 _DiffuseMapCutoutA_ST;
             struct VertexInput {
@@ -336,7 +359,7 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 o.uv1 = v.texcoord1;
                 o.uv2 = v.texcoord2;
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
+                o.pos = UnityObjectToClipPos( v.vertex );
                 TRANSFER_SHADOW_CASTER(o)
                 return o;
             }
@@ -363,6 +386,7 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             #define UNITY_PASS_META 1
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
+            #pragma multi_compile_instancing
             #include "UnityCG.cginc"
             #include "Lighting.cginc"
             #include "UnityPBSLighting.cginc"
@@ -374,21 +398,24 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers xbox360 ps3 
             #pragma target 3.0
             uniform sampler2D _DiffuseMapCutoutA; uniform float4 _DiffuseMapCutoutA_ST;
-            uniform float4 _Diffusecolor;
             uniform sampler2D _SpecularMap; uniform float4 _SpecularMap_ST;
-            uniform float4 _Speccolor;
-            uniform float _SpecIntensity;
-            uniform float _Gloss;
+            UNITY_INSTANCING_BUFFER_START( Props )
+                UNITY_DEFINE_INSTANCED_PROP( float4, _Diffusecolor)
+                UNITY_DEFINE_INSTANCED_PROP( float4, _Speccolor)
+                UNITY_DEFINE_INSTANCED_PROP( float, _SpecIntensity)
+                UNITY_DEFINE_INSTANCED_PROP( float, _Gloss)
+            UNITY_INSTANCING_BUFFER_END( Props )
             struct VertexInput {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
                 float4 vertex : POSITION;
                 float2 texcoord0 : TEXCOORD0;
                 float2 texcoord1 : TEXCOORD1;
                 float2 texcoord2 : TEXCOORD2;
             };
             struct VertexOutput {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
                 float4 pos : SV_POSITION;
                 float2 uv0 : TEXCOORD0;
                 float2 uv1 : TEXCOORD1;
@@ -397,6 +424,8 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
+                UNITY_SETUP_INSTANCE_ID( v );
+                UNITY_TRANSFER_INSTANCE_ID( v, o );
                 o.uv0 = v.texcoord0;
                 o.uv1 = v.texcoord1;
                 o.uv2 = v.texcoord2;
@@ -405,6 +434,7 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 return o;
             }
             float4 frag(VertexOutput i, float facing : VFACE) : SV_Target {
+                UNITY_SETUP_INSTANCE_ID( i );
                 float isFrontFace = ( facing >= 0 ? 1 : 0 );
                 float faceSign = ( facing >= 0 ? 1 : -1 );
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
@@ -414,10 +444,14 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
                 o.Emission = 0;
                 
                 float4 _DiffuseMapCutoutA_var = tex2D(_DiffuseMapCutoutA,TRANSFORM_TEX(i.uv0, _DiffuseMapCutoutA));
-                float3 diffColor = (_DiffuseMapCutoutA_var.rgb*_Diffusecolor.rgb);
+                float4 _Diffusecolor_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Diffusecolor );
+                float3 diffColor = (_DiffuseMapCutoutA_var.rgb*_Diffusecolor_var.rgb);
                 float4 _SpecularMap_var = tex2D(_SpecularMap,TRANSFORM_TEX(i.uv0, _SpecularMap));
-                float3 specColor = ((_SpecularMap_var.rgb*_SpecIntensity)*_Speccolor.rgb);
-                float roughness = 1.0 - _Gloss;
+                float _SpecIntensity_var = UNITY_ACCESS_INSTANCED_PROP( Props, _SpecIntensity );
+                float4 _Speccolor_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Speccolor );
+                float3 specColor = ((_SpecularMap_var.rgb*_SpecIntensity_var)*_Speccolor_var.rgb);
+                float _Gloss_var = UNITY_ACCESS_INSTANCED_PROP( Props, _Gloss );
+                float roughness = 1.0 - _Gloss_var;
                 o.Albedo = diffColor + specColor * roughness * roughness * 0.5;
                 
                 return UnityMetaFragment( o );
@@ -426,4 +460,5 @@ Shader "Ciconia Studio/Double Sided/Transparent/Diffuse Bump Cutout" {
         }
     }
     FallBack "Diffuse"
+    CustomEditor "ShaderForgeMaterialInspector"
 }

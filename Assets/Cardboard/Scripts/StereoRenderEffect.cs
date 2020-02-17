@@ -20,13 +20,11 @@ using UnityEngine;
 public class StereoRenderEffect : MonoBehaviour {
   private Material material;
 
-#if UNITY_5
   private Camera _camera;
 
   void Awake() {
     _camera = GetComponent<Camera>();
   }
-#endif
 
   void Start() {
     material = new Material(Shader.Find("Cardboard/SkyboxMesh"));

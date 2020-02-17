@@ -278,9 +278,9 @@ public class StereoController : MonoBehaviour {
       head.trackPosition = false;
     }
 #if !UNITY_5
-    if (cam.tag == "MainCamera" && GetComponent<SkyboxMesh>() == null) {
-      gameObject.AddComponent<SkyboxMesh>();
-    }
+    // if (cam.tag == "MainCamera" && GetComponent<SkyboxMesh>() == null) {
+    //   gameObject.AddComponent<SkyboxMesh>();
+    // }
 #endif
   }
 
@@ -292,7 +292,7 @@ public class StereoController : MonoBehaviour {
     go.AddComponent<Camera>().enabled = false;
 #if !UNITY_5
     if (GetComponent("FlareLayer") != null) {
-      go.AddComponent("FlareLayer");
+      go.AddComponent<FlareLayer>();
     }
 #endif
     var cardboardEye = go.AddComponent<CardboardEye>();

@@ -39,25 +39,14 @@ public class BuildProject : MonoBehaviour
 				target = BuildTarget.StandaloneWindows64;
 				break;
 			case "linux":
-			case "linux32":
-				target = BuildTarget.StandaloneLinux;
-				break;
 			case "linux64":
 				target = BuildTarget.StandaloneLinux64;
 				break;
 			case "osx":
 			case "mac":
-			case "osx32":
-			case "mac32":
-				target = BuildTarget.StandaloneOSXIntel;
-				break;
-			case "osx64":
-			case "mac64":
-				target = BuildTarget.StandaloneOSXIntel64;
-				break;
 			case "osxuniversal":
 			case "macuniversal":
-				target = BuildTarget.StandaloneOSXUniversal;
+				target = BuildTarget.StandaloneOSX;
 				break;
 
 			default:
